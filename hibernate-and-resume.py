@@ -19,7 +19,7 @@ def runHibernate():
     # scheduled_datetime = datetime.datetime(tomorrow.year, tomorrow.month, 25, 18, 40, 0, 0)
     print("newt wakeup time: %s" % scheduled_datetime)
     unix_time = int(time.mktime(scheduled_datetime.timetuple()))
-    res = subprocess.run(["rtcwake", "-m", "disk", "-t", str(unix_time)], stdout=subprocess.PIPE)
+    res = subprocess.run(["sudo", "rtcwake", "-m", "disk", "-t", str(unix_time)], stdout=subprocess.PIPE)
     sys.stdout.buffer.write(res.stdout)
     print("end runHibernate")
 
